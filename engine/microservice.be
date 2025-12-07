@@ -1,7 +1,7 @@
 from flask import Flask, request
 from paperweb_runtime_v1_1 import Paperweb
 
-app = Flask(__name__)
+app = Flask(__name__) 
 
 @app.route("/render", methods=["POST"])
 def render():
