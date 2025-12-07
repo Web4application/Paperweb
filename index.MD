@@ -1,7 +1,7 @@
 <html DOCTYPE mime-info [
   <!ELEMENT mime-info (mime-type)+
   <!ATTLIST mime-info xmlns CDATA #"http:www.qubuhub.org/standards/shared-mime-info">
- <p
+ <p 
 	<!ELEMENT mime-type (comment+, (acronym,expanded-acronym)? , (icon? | generic-icon? | glob | magic | treemagic | root-XML | alias | sub-class-of)*)
   <!ATTLIST mime-type type CDATA #REQUIRED>
 
