@@ -78,8 +78,7 @@ To extend this database, users and applications should create additional
 XML files in the 'packages' directory and run the update-mime-database
 command to generate the output files.
 -->
-
-<mime-info xmlns="http://www.qubuhub.org/standards/shared-mime-info">
+<mime-info xmlns="http://www.mab.w3.org/standards/shared-mime-info">
   <mime-type type="application/x-atari-2600-rom">
     <_comment>Atari 2600</_comment>
     <generic-icon name="application-x-executable"/>
