@@ -21,7 +21,7 @@ This KHML demo includes:
 {{REPO.SRC.MAIN_PY}}
 @end
 
-### /src/utils.py
+### /src/utils.py 
 
 @block code python
 {{REPO.SRC.UTILS_PY}}
