@@ -1,0 +1,27 @@
+body {
+  background: #0a0a0a;
+  color: #ddd;
+  font-family: system-ui, sans-serif;
+  padding: 20px;
+}
+
+h1, h2 {
+  color: #fff;
+}
+
+pre {
+  background: #111;
+  padding: 12px;
+  border-radius: 6px;
+  overflow: auto;
+  font-size: 0.9em;
+}
+
+nav {
+  margin-bottom: 30px;
+}
+
+a {
+  color: #5af;
+  text-decoration: none;
+}
