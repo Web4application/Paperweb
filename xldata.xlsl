@@ -1,0 +1,13 @@
+engine xldata
+
+fn read(file):
+    python: |
+        import pandas as pd
+        return pd.read_csv(file).head().to_dict()
+
+fn inspect(file):
+    python: |
+        with open(file, "r") as f:
+            return f.read()[:500]
+
+end
