@@ -25,7 +25,7 @@ It includes:
 - namespace metadata
 @end
 
-
+ 
 @page directory-tree
 ## Repository Structure
 
