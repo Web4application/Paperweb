@@ -1,0 +1,29 @@
+# paperweb.kconfig
+
+@config
+project "Paperweb"
+version "1.0"
+author "Seriki Yakub"
+
+# enable core modules
+module.parser true
+module.renderer true
+module.engine true
+module.repo-loader true
+
+# repo hydrate
+hydrate.repo true
+hydrate.tokens "{{REPO.*}}"
+
+# engines
+engine.import "xlmath"
+engine.import "xlcode"
+engine.import "xldata"
+
+# HTML output
+render.target "html"
+render.stylesheet "paperweb.css"
+
+# output directory
+build.out "./paperweb_site"
+@end
