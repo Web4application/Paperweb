@@ -1,0 +1,20 @@
+engine xlmath
+
+fn integrate(expr, var):
+    python: |
+        import sympy as sp
+        v = sp.symbols(var)
+        return str(sp.integrate(eval(expr), v))
+
+fn derive(expr, var):
+    python: |
+        import sympy as sp
+        v = sp.symbols(var)
+        return str(sp.diff(eval(expr), v))
+
+fn matrix.invert(m):
+    python: |
+        import sympy as sp
+        return sp.Matrix(m).inv().tolist()
+
+end
