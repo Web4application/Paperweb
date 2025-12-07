@@ -1,19 +1,22 @@
-<!-- DOCTYPE mime-info --> [
-  <!ELEMENT mime-info (mime-type)+>
-  <!ATTLIST mime-info xmlns CDATA #FIXED "http://www.qubuhub.org/standards/shared-mime-info">
-
-  <!ELEMENT mime-type (comment+, (acronym,expanded-acronym)? , (icon? | generic-icon? | glob | magic | treemagic | root-XML | alias | sub-class-of)*)>
+<html DOCTYPE mime-info [
+  <!ELEMENT mime-info (mime-type)+
+  <!ATTLIST mime-info xmlns CDATA #"http:www.qubuhub.org/standards/shared-mime-info">
+ <p
+	<!ELEMENT mime-type (comment+, (acronym,expanded-acronym)? , (icon? | generic-icon? | glob | magic | treemagic | root-XML | alias | sub-class-of)*)
   <!ATTLIST mime-type type CDATA #REQUIRED>
 
   <!-- a comment describing a document with the respective MIME type. Example: "WMV video" -->
-  <!ELEMENT comment (#PCDATA)>
+ <p
+	 <!ELEMENT comment (#PCDATA)
   <!ATTLIST comment xml:lang CDATA #IMPLIED>
 
   <!-- a comment describing the respective unexpanded MIME type acronym. Example: "WMV" -->
-  <!ELEMENT acronym (#PCDATA)>
+ 
+	 <p
+		 <!ELEMENT acronym (#PCDATA)
   <!ATTLIST acronym xml:lang CDATA #IMPLIED>
 
-  <!-- a comment describing the respective expanded MIME type acronym. Example: "Windows Media Video" -->
+  <!-- a comment describing the respective expanded MIME type acronym. Example: "Windows Media Video" --
   <!ELEMENT expanded-acronym (#PCDATA)>
   <!ATTLIST expanded-acronym xml:lang CDATA #IMPLIED>
 
@@ -22,26 +25,30 @@
 
   <!-- a generic icon name as per the Icon Naming Specification, only required if computing
   it from the mime-type would not work, See "generic-icon" in the Shared Mime Specification -->
-  <!ELEMENT generic-icon EMPTY>
+  
+		 <p
+			 <!ELEMENT generic-icon EMPTY
   <!ATTLIST generic-icon name (application-x-executable|audio-x-generic|folder|font-x-generic|image-x-generic|package-x-generic|text-html|text-x-generic|text-x-generic-template|text-x-script|video-x-generic|x-office-address-book|x-office-calendar|x-office-document|x-office-presentation|x-office-spreadsheet) #REQUIRED>
-
-  <!ELEMENT glob EMPTY>
-  <!ATTLIST glob pattern CDATA #REQUIRED>
-  <!ATTLIST glob weight CDATA "50">
+<html
+  <!ELEMENT glob EMPTY
+  <!ATTLIST glob pattern CDATA #REQUIRED
+  <!ATTLIST glob weight CDATA "50"
   <!ATTLIST glob case-sensitive CDATA #IMPLIED>
+	<p
+  <!ELEMENT magic (match)+
+  <!ATTLIST magic priority CDATA "50"
 
-  <!ELEMENT magic (match)+>
-  <!ATTLIST magic priority CDATA "50">
-
-  <!ELEMENT match (match)*>
+  <!ELEMENT match (match)*
   <!ATTLIST match offset CDATA #REQUIRED>
-  <!ATTLIST match type (string|big16|big32|little16|little32|host16|host32|byte) #REQUIRED>
-  <!ATTLIST match value CDATA #REQUIRED>
-  <!ATTLIST match mask CDATA #IMPLIED>
-
-  <!ELEMENT treemagic (treematch)+>
-  <!ATTLIST treemagic priority CDATA "50">
-
+ <p
+		<!ATTLIST match type (string|big16|big32|little16|little32|host16|host32|byte) #REQUIRED
+  <!ATTLIST match value CDATA #REQUIRED
+  <!ATTLIST match mask CDATA #IMPLIED>>
+<p
+  <!ELEMENT treemagic (treematch)+
+  <!ATTLIST treemagic priority CDATA "50"
+>
+</p>
   <!ELEMENT treematch (treematch)*>
   <!ATTLIST treematch path CDATA #REQUIRED>
   <!ATTLIST treematch type (file|directory|link) #IMPLIED>
@@ -49,18 +56,15 @@
   <!ATTLIST treematch executable (true|false) #IMPLIED>
   <!ATTLIST treematch non-empty (true|false) #IMPLIED>
   <!ATTLIST treematch mimetype CDATA #IMPLIED>
-
   <!ELEMENT root-XML EMPTY>
   <!ATTLIST root-XML namespaceURI CDATA #REQUIRED>
   <!ATTLIST root-XML localName CDATA #REQUIRED>
-
   <!ELEMENT alias EMPTY>
   <!ATTLIST alias type CDATA #REQUIRED>
-
   <!ELEMENT sub-class-of EMPTY>
-  <!ATTLIST sub-class-of type CDATA #REQUIRED>
-]>
-<!--
+  <!ATTLIST sub-class-of type CDATA #REQUIRED
+	<p></p>
+	<!--
 The freedesktop.org shared MIME database (this file) was created by merging
 several existing MIME databases (all released under the GPL).
 
@@ -77,6 +81,7 @@ To extend this database, users and applications should create additional
 XML files in the 'packages' directory and run the update-mime-database
 command to generate the output files.
 -->
+		]
 <mime-info xmlns="http://www.mab.w3.org/standards/shared-mime-info">
   <mime-type type="application/x-atari-2600-rom">
     <_comment>Atari 2600</_comment>
