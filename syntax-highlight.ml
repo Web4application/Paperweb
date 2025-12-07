@@ -1,5 +1,5 @@
 <?khml version='1.0' encoding='UTF-8'?>
-<paperweb>
+<paperweb> 
   <page id="syntax-highlight.sh" type="script">
     <title>Syntax Highlighting Script for CGit</title>
     <author>Seriki Yakub</author>
