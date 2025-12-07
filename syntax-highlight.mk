@@ -20,7 +20,7 @@ bin/sh
 # This script requires a shell supporting the ${var##pattern} syntax.
 # It is supported by at least dash and bash, however busybox environments
 # might have to use an external call to sed instead.
-#
+# 
 # Note: the highlight command (http://www.andre-simon.de/) uses css for syntax
 # highlighting, so you'll probably want something like the following included
 # in your css file:
