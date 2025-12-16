@@ -1,0 +1,86 @@
+bplist00�_WebMainResource�	
+_WebResourceData_WebResourceMIMEType_WebResourceFrameName^WebResourceURL_WebResourceTextEncodingNameO y<!DOCTYPE html><head><meta charset="UTF-8"></head><p style="margin: 1em 0px; caret-color: rgb(26, 26, 26); color: rgb(26, 26, 26); font-family: -webkit-standard; font-size: 14.4px; font-style: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-tap-highlight-color: rgba(26, 26, 26, 0.3); -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none;">When creating a<span class="Apple-converted-space"> </span><a href="https://nbformat.readthedocs.io/en/latest/" style="color: rgb(26, 26, 26);">Jupyter notebook</a>, pandoc will try to infer the notebook structure. Code blocks with the class<span class="Apple-converted-space"> </span><code style="font-family: Menlo, Monaco, Consolas, &quot;Lucida Console&quot;, monospace; font-size: 12.24px; margin: 0px; hyphens: manual; white-space: pre-wrap;">code</code><span class="Apple-converted-space"> </span>will be taken as code cells, and intervening content will be taken as Markdown cells. Attachments will automatically be created for images in Markdown cells. Metadata will be taken from the<span class="Apple-converted-space"> </span><code style="font-family: Menlo, Monaco, Consolas, &quot;Lucida Console&quot;, monospace; font-size: 12.24px; margin: 0px; hyphens: manual; white-space: pre-wrap;">jupyter</code><span class="Apple-converted-space"> </span>metadata field. For example:</p><pre style="margin: 1em 0px; overflow: auto; caret-color: rgb(26, 26, 26); color: rgb(26, 26, 26); font-style: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; widows: auto; word-spacing: 0px; -webkit-tap-highlight-color: rgba(26, 26, 26, 0.3); -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none;"><code style="font-family: Menlo, Monaco, Consolas, &quot;Lucida Console&quot;, monospace; font-size: 12.24px; margin: 0px; hyphens: manual; white-space: pre-wrap; padding: 0px; overflow: visible; overflow-wrap: normal;">---
+title: My notebook
+jupyter:
+  nbformat: 4
+  nbformat_minor: 5
+  kernelspec:
+     display_name: Python 2
+     language: python
+     name: python2
+  language_info:
+     codemirror_mode:
+       name: ipython
+       version: 2
+     file_extension: ".py"
+     mimetype: "text/x-python"
+     name: "python"
+     nbconvert_exporter: "python"
+     pygments_lexer: "ipython2"
+     version: "2.7.15"
+---
+
+# Lorem ipsum
+
+**Lorem ipsum** dolor sit amet, consectetur adipiscing elit. Nunc luctus
+bibendum felis dictum sodales.
+
+``` code
+print("hello")
+```
+
+## Pyout
+
+``` code
+from IPython.display import HTML
+HTML("""
+&lt;script&gt;
+console.log("hello");
+&lt;/script&gt;
+&lt;b&gt;HTML&lt;/b&gt;
+""")
+```
+
+## Image
+
+This image ![image](myimage.png) will be
+included as a cell attachment.</code></pre><p style="margin: 1em 0px; caret-color: rgb(26, 26, 26); color: rgb(26, 26, 26); font-family: -webkit-standard; font-size: 14.4px; font-style: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-tap-highlight-color: rgba(26, 26, 26, 0.3); -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none;">If you want to add cell attributes, group cells differently, or add output to code cells, then you need to include divs to indicate the structure. You can use either<span class="Apple-converted-space"> </span><a href="8.18-divs-and-spans.html#extension-fenced_divs" style="color: rgb(26, 26, 26);">fenced divs</a><span class="Apple-converted-space"> </span>or<a href="8.14-raw-html.html#extension-native_divs" style="color: rgb(26, 26, 26);">native divs</a><span class="Apple-converted-space"> </span>for this. Here is an example:</p><pre style="margin: 1em 0px; overflow: auto; caret-color: rgb(26, 26, 26); color: rgb(26, 26, 26); font-style: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; widows: auto; word-spacing: 0px; -webkit-tap-highlight-color: rgba(26, 26, 26, 0.3); -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none;"><code style="font-family: Menlo, Monaco, Consolas, &quot;Lucida Console&quot;, monospace; font-size: 12.24px; margin: 0px; hyphens: manual; white-space: pre-wrap; padding: 0px; overflow: visible; overflow-wrap: normal;">:::::: {.cell .markdown}
+# Lorem
+
+**Lorem ipsum** dolor sit amet, consectetur adipiscing elit. Nunc luctus
+bibendum felis dictum sodales.
+::::::
+
+:::::: {.cell .code execution_count=1}
+``` {.python}
+print("hello")
+```
+
+::: {.output .stream .stdout}
+```
+hello
+```
+:::
+::::::
+
+:::::: {.cell .code execution_count=2}
+``` {.python}
+from IPython.display import HTML
+HTML("""
+&lt;script&gt;
+console.log("hello");
+&lt;/script&gt;
+&lt;b&gt;HTML&lt;/b&gt;
+""")
+```
+
+::: {.output .execute_result execution_count=2}
+```{=html}
+&lt;script&gt;
+console.log("hello");
+&lt;/script&gt;
+&lt;b&gt;HTML&lt;/b&gt;
+hello
+```
+:::
+::::::</code></pre><p style="margin: 1em 0px; caret-color: rgb(26, 26, 26); color: rgb(26, 26, 26); font-family: -webkit-standard; font-size: 14.4px; font-style: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-tap-highlight-color: rgba(26, 26, 26, 0.3); -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none;">If you include raw HTML or TeX in an output cell, use the<span class="Apple-converted-space"> </span><a href="8.14-raw-html.html#extension-raw_attribute" style="color: rgb(26, 26, 26);">raw attribute</a>, as shown in the last cell of the example above. Although pandoc can process “bare” raw HTML and TeX, the result is often interspersed raw elements and normal textual elements, and in an output cell pandoc expects a single, connected raw block. To avoid using raw HTML or TeX except when marked explicitly using raw attributes, we recommend specifying the extensions<span class="Apple-converted-space"> </span><code style="font-family: Menlo, Monaco, Consolas, &quot;Lucida Console&quot;, monospace; font-size: 12.24px; margin: 0px; hyphens: manual; white-space: pre-wrap;">-raw_html-raw_tex+raw_attribute</code><span class="Apple-converted-space"> </span>when translating between Markdown and ipynb notebooks.</p><p style="margin: 1em 0px; caret-color: rgb(26, 26, 26); color: rgb(26, 26, 26); font-family: -webkit-standard; font-size: 14.4px; font-style: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-tap-highlight-color: rgba(26, 26, 26, 0.3); -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; text-decoration: none;">Note that options and extensions that affect reading and writing of Markdown will also affect Markdown cells in ipynb notebooks. For example,<span class="Apple-converted-space"> </span><code style="font-family: Menlo, Monaco, Consolas, &quot;Lucida Console&quot;, monospace; font-size: 12.24px; margin: 0px; hyphens: manual; white-space: pre-wrap;">--wrap=preserve</code><span class="Apple-converted-space"> </span>will preserve soft line breaks in Markdown cells;<span class="Apple-converted-space"> </span><code style="font-family: Menlo, Monaco, Consolas, &quot;Lucida Console&quot;, monospace; font-size: 12.24px; margin: 0px; hyphens: manual; white-space: pre-wrap;">--markdown-headings=setext</code><span class="Apple-converted-space"> </span>will cause Setext-style headings to be used; and<span class="Apple-converted-space"> </span><code style="font-family: Menlo, Monaco, Consolas, &quot;Lucida Console&quot;, monospace; font-size: 12.24px; margin: 0px; hyphens: manual; white-space: pre-wrap;">--preserve-tabs</code><span class="Apple-converted-space"> </span>will prevent tabs from being turned to spaces.</p>Ytext/htmlP_;https://pandoc.org/demo/example33/13-jupyter-notebooks.htmlUUTF-8    ( : P g v �!!!!Z                           !`
