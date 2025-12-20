@@ -27,7 +27,7 @@ export default function DocsPage() {
               <p className="text-sm text-accent font-medium">Documentation</p>
               <h1 className="mt-2 text-4xl font-bold tracking-tight">Introduction</h1>
               <p className="mt-4 text-lg text-muted-foreground">
-                Welcome to Aura, the unified knowledge framework for mathematics, logic, and computation.
+                Welcome to Aura paperweb, the unified knowledge framework for mathematics, logic, and computation.
               </p>
             </div>
 
