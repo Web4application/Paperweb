@@ -1,6 +1,8 @@
-Perfect. Let’s turn your notebook into a **modular, Aura-ready Python package** that’s plug-and-play for any dataset, keeping all your features—data fetching, aggregation, and plotting. Here’s a clean structure and starter code:
-
 ---
+page: docs
+tittle: aura paperweb
+---
+Perfect. Let’s turn your notebook into a **modular, Aura-ready Python package** that’s plug-and-play for any dataset, keeping all your features—data fetching, aggregation, and plotting. Here’s a clean structure and starter code:
 
 ## **1. Project Structure**
 
@@ -161,12 +163,4 @@ plotly
 4. **Interactive and static outputs:** Works in dashboards or reports.
 5. **Easy integration:** Can be wrapped into Aura dashboards, APIs, or CLI tools.
 
----
-
-If you want, I can **upgrade this further into a full Aura dashboard module**, where you can:
-
-* Select any dataset or indicator.
-* See interactive charts in the browser.
-* Export CSV, JSON, or PDF reports automatically.
-
-Do you want me to do that next?
+--
