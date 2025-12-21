@@ -1,24 +1,24 @@
 #!/usr/bin/env python3
-import cgi, markdown, json
+import cgi, json, markdown
 
 print("Content-Type: text/html\n")
 
 form = cgi.FieldStorage()
-paper_id = form.getvalue("id")
+pid = form.getvalue("id")
 
-with open("data/papers.json") as f:
+with open("../data/papers.json") as f:
     papers = json.load(f)
 
-paper = papers.get(paper_id)
+paper = papers.get(pid)
+if not paper:
+    print("<h1>Paper not found</h1>")
+    exit()
 
-html = markdown.markdown(open(paper["file"]).read())
+content = markdown.markdown(open(f"../{paper['file']}").read())
 
 print(f"""
-<html>
-<head><title>{paper['title']}</title></head>
-<body>
 <h1>{paper['title']}</h1>
-{html}
-</body>
-</html>
+<p><i>{paper['author']} – {paper['year']}</i></p>
+<hr>
+{content}
 """)
