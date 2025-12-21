@@ -1,0 +1,74 @@
+# Base
+
+> The #1 Ethereum Layer 2, incubated by Coinbase
+
+<div className="use-cases">
+  <div className="use-cases-links">
+    ### Payments
+
+    [Accept Payments](/base-account/guides/accept-payments)
+    [Understand Network Fees](/base-chain/network-information/network-fees)
+    [Integrate Base Accounts](/base-account/quickstart/web)
+  </div>
+
+  <div className="use-cases-links">
+    ### Apps
+
+    [Create a Mini App](/mini-apps/quickstart/create-new-miniapp)
+    [Sponsor Transactions](/base-account/improve-ux/sponsor-gas/paymasters)
+    [Accept Recurring Payments](/base-account/guides/accept-recurring-payments)
+  </div>
+
+  <div className="use-cases-links">
+    ### Tokens
+
+    [Launch a Token](/get-started/launch-token)
+    [Bridge from Solana](/base-chain/quickstart/base-solana-bridge)
+    [Bridge from Ethereum](/base-chain/quickstart/bridge-token)
+  </div>
+</div>
+
+### Products
+
+<CardGroup cols={4}>
+  <Card title="Base Chain" icon="link" href="/base-chain/quickstart/why-base">
+    Network, nodes, and infrastructure
+  </Card>
+
+  <Card title="Base Account" icon="wallet" href="/base-account/overview/what-is-base-account">
+    Authentication, payments, Basenames
+  </Card>
+
+  <Card title="Mini Apps" icon="grid-2" href="/mini-apps/introduction/overview">
+    Build in-app social experiences
+  </Card>
+
+  <Card title="Solana Bridge" icon="bridge" href="/base-chain/quickstart/base-solana-bridge">
+    Cross-chain asset transfers
+  </Card>
+</CardGroup>
+
+<div className="resources-section">
+  ### Resources
+
+  <div className="resources-row">
+    <div>
+      <h4>Funding</h4>
+      <span className="resource-link"><Icon icon="trophy" size={14} /> <a href="https://www.builderscore.xyz/">Builder Rewards</a></span>
+      <span className="resource-link"><Icon icon="hand-holding-dollar" size={14} /> <a href="https://paragraph.com/@grants.base.eth/calling-based-builders">Grants</a></span>
+      <span className="resource-link"><Icon icon="rocket" size={14} /> <a href="https://www.basebatches.xyz/">Base Batches</a></span>
+      <span className="resource-link"><Icon icon="clock-rotate-left" size={14} /> <a href="https://atlas.optimism.io/">Retroactive Funding</a></span>
+    </div>
+
+    <div>
+      <h4>Growth</h4>
+      <span className="resource-link"><Icon icon="globe" size={14} /> <a href="https://github.com/base/web?tab=readme-ov-file#updating-the-base-ecosystem-page">Join the Base Ecosystem</a></span>
+      <span className="resource-link"><Icon icon="user-group" size={14} /> <a href="/get-started/base-mentorship-program">Find a Base Mentor</a></span>
+    </div>
+  </div>
+</div>
+
+
+---
+
+> To find navigation and other pages in this documentation, fetch the llms.txt file at: https://docs.base.org/llms.txt
