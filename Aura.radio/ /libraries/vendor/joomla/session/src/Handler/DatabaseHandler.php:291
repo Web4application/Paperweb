@@ -1,0 +1,4 @@
+* ‭UPDATE `j17_session`‬
+* 		‭SET `data` = ?‬
+* 		‭	, `time` = ?‬
+* 		‭WHERE `session_id` = ?‬950μs
