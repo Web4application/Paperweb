@@ -1,0 +1,81 @@
+image: python:3.10
+stages:
+  - test
+  - deploy_main
+  - release
+  - deploy_demo
+.install_requirements: &install_requirements
+  - apt-get -qq update
+  - apt-get -y install pip make
+  - python3 -m pip install --upgrade pip
+  - pip install poetry
+  - poetry install --no-interaction
+.release-rules: &release-rules
+  # rule to run job on a tag-reference which has the form number.number.number (semantic versioning)
+  # or number.number.number-text (semantic versioning + release-name)
+  - if: $CI_COMMIT_TAG =~ /^\d+[.]\d+[.]\d+$/ || $CI_COMMIT_TAG =~ /^\d+[.]\d+[.]\d+[-]\S+$/
+check_style:
+  stage: test
+  before_script:
+    - *install_requirements
+  script:
+    - make dev.spell
+deploy_main:
+  image: alpine:latest
+  stage: deploy_main
+  variables:
+    AURA_STEERING_VERSION: "main"
+    AURA_TANK_VERSION: "main"
+    AURA_DASHBOARD_VERSION: "main"
+    AURA_DASHBOARD_CLOCK_VERSION: "main"
+    AURA_TANK_CUTGLUE_VERSION: "main"
+    DOCKER_REGISTRY: "docker"
+  before_script:
+    - apk update
+    - apk add openssh
+    - eval $(ssh-agent -s)
+    - echo "$SSH_DASHBOARD_PRIVATE_KEY" | tr -d '\r' | ssh-add -
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+    - mv $SSH_DASHBOARD_KNOWN_HOSTS ~/.ssh/known_hosts
+    - chmod 644 ~/.ssh/known_hosts
+    - mv $RELOAD_SH ./reload.sh
+  script:
+    - ssh $SSH_DASHBOARD_USER@$SSH_DASHBOARD_HOST "sudo /usr/local/bin/reload-aura.sh $CI_COMMIT_SHORT_SHA"
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+release_job:
+  stage: release
+  image: registry.gitlab.com/gitlab-org/release-cli:latest
+  rules: *release-rules
+  script:
+    - echo "this will be a release when there is a tag, but tags should be protected to be only createable by maintainers."
+  release:
+    name: "Release $CI_COMMIT_TAG"
+    description: ./docs/release-notes.md
+    tag_name: "$CI_COMMIT_TAG"
+    ref: "$CI_COMMIT_TAG"
+deploy_demo:
+  stage: deploy_demo
+  image: alpine:latest
+  rules: *release-rules
+  needs: ["release_job"]
+  when: manual
+  variables:
+    AURA_STEERING_VERSION: latest
+    AURA_TANK_VERSION: latest
+    AURA_DASHBOARD_VERSION: latest
+    AURA_DASHBOARD_CLOCK_VERSION: latest
+    AURA_TANK_CUTGLUE_VERSION: latest
+  before_script:
+    - apk update
+    - apk add openssh
+    - eval $(ssh-agent -s)
+    - echo "$SSH_DEMO_PRIVATE_KEY" | tr -d '\r' | ssh-add -
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+    - mv $SSH_DEMOO_KNOWN_HOSTS ~/.ssh/known_hosts
+    - chmod 644 ~/.ssh/known_hosts
+    - mv $RELOAD_SH ./reload.sh
+  script:
+    - ssh $SSH_DEMO_USER@$SSH_DEMO_HOST "bash -s" < reload.sh $DOCKER_COMPOSE $AURA_STEERING_VERSION $AURA_TANK_VERSION $AURA_DASHBOARD_VERSION $AURA_DASHBOARD_CLOCK_VERSION $AURA_TANK_CUTGLUE_VERSION $DOCKER_REGISTRY $CI_COMMIT_SHORT_SHA
