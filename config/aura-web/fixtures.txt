@@ -1,0 +1,29 @@
+
+category.json
+Metadata to categorize shows with.
+fundingcategory.json
+✅
+Metadata for reporting on shows. Required for creating new shows.
+host.json
+Allows creation of a default host, assigned to a default show.
+language.json
+Supported languages assigned to shows or episodes.
+license.json
+✅
+Supported licenses used for image or media uploads.
+linktype.json
+Types of links available for shows, episodes or host profiles.
+musicfocus.json
+Music genres for classifying music shows.
+radiosettings.json
+Basic radio station configuration.
+rrule.json
+✅
+Recurrence rules used in planning of the radio station calendar.
+show.json
+Allows creation of a default show, like for filling empty timeslots.
+topic.json
+Metadata for grouping shows and episodes per certain topics.
+type.json
+✅
+Metadata for grouping shows per content format. Required for creating new shows.
