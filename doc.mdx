@@ -1,0 +1,280 @@
+---
+tittle: aura.radio
+---
+
+## 
+
+SELECT `data`
+FROM `j17_session`
+WHERE `session_id` = ?
+SELECT `data`
+FROM `j17_session`
+WHERE `session_id` = ?
+
+‭SELECT `data`‬
+‭FROM `j17_session`‬
+* WHERE `session_id` = ?‬573μs 17.65KB Parameters /libraries/vendor/joomla/session/src/Handler/DatabaseHandler.php:261 Copy
+       Query Parameters		
+        ID	Value	Data Type
+      1	8thb7bchrbtimmet46ekg7nn83	string
+*
+  SELECT `session_id`‬
+* ‭FROM `j17_session`‬
+* ‭WHERE `session_id` = :session_id LIMIT 1‬545μs 16.98KB Parameters /libraries/src/Session/MetadataManager.php:187 Copy
+* INSERT INTO `j17_session`‬
+* 		‭(`session_id`,`guest`,`time`,`userid`,`username`,`client_id`) VALUES ‬
+* 		‭(:session_id, :guest, :time, :user_id, :username, :client_id)‬858μs 1.63KB Parameters Copy
+* SELECT `extension_id` AS `id`,`element` AS `option`,`params`,`enabled`‬
+* ‭FROM `j17_extensions`‬
+* ‭WHERE `type` = 'component' AND `state` = 0 AND `enabled` = 1‬1.9ms 28.18KB /libraries/src/Component/ComponentHelper.php:399 Copy
+* 	‭SELECT `id`,`rules`‬
+* 		‭FROM `j17_viewlevels`‬470μs 17.07KB /libraries/src/Access/Access.php:955 Copy
+* 		‭SELECT `b`.`id`‬
+* 		‭FROM `j17_usergroups` AS `a`‬
+* 		‭LEFT JOIN `j17_usergroups` AS `b` ON `b`.`lft` <= `a`.`lft` AND `b`.`rgt` >= `a`.`rgt`‬
+* 		‭WHERE `a`.`id` = :guest‬574μs 17.04KB Parameters /libraries/src/Access/Access.php:868 Copy
+* 		‭SELECT `folder` AS `type`,`element` AS `name`,`params` AS `params`,`extension_id` AS `id`‬
+* 		‭FROM `j17_extensions`‬
+* 		‭WHERE `enabled` = 1 AND `type` = 'plugin' AND `state` IN (0,1) AND `access` IN (:preparedArray1)‬
+* 		‭ORDER BY `ordering`‬8.84ms 53.64KB Parameters /libraries/src/Plugin/PluginHelper.php:294 Copy
+* 		‭SELECT `m`.`id`,`m`.`menutype`,`m`.`title`,`m`.`alias`,`m`.`note`,`m`.`link`,`m`.`type`,`m`.`level`,`m`.`language`,`m`.`browserNav`,`m`.`access`,`m`.`params`,`m`.`home`,`m`.`img`,`m`.`template_style_id`,`m`.`component_id`,`m`.`parent_id`,`m`.`path` AS `route`,`e`.`element` AS `component`‬
+* 		‭FROM `j17_menu` AS `m`‬
+* 		‭LEFT JOIN `j17_extensions` AS `e` ON `m`.`component_id` = `e`.`extension_id`‬
+    ‭WHERE,
+     ‭(‬
+* 	‭(`m`.`published` = 1 AND `m`.`parent_id` > 0 AND `m`.`client_id` = 0) AND ‬
+* ‭(`m`.`publish_up` IS NULL OR `m`.`publish_up` <= :currentDate1)) AND ‬
+* 	‭(`m`.`publish_down` IS NULL OR `m`.`publish_down` >= :currentDate2)‬
+ 		‭ORDER BY `m`.`lft`‬5.49ms 160.26KB Parameters /libraries/src/Menu/SiteMenu.php:166 Copy
+* 		‭SELECT *‬
+* 		‭FROM `j17_languages`‬
+* 		‭WHERE `published` = 1‬
+   ‭ORDER BY `ordering` ASC‬678μs 19.05KB /libraries/src/Language/LanguageHelper.php:142 Copy
+*
+   ‭SELECT `id`,`home`,`template`,`s`.`params`,`inheritable`,`parent`‬
+* 		‭FROM `j17_template_styles` AS `s`‬
+* 		‭LEFT JOIN `j17_extensions` AS `e` ON `e`.`element` = `s`.`template` AND `e`.`type` = 'template' AND `e`.`client_id` = `s`.`client_id`‬
+ 		‭WHERE `s`.`client_id` = 0 AND `e`.`enabled` = 1‬1.01ms 17.84KB /administrator/components/com_templates/src/Model/StyleModel.php:773 Copy
+* 		‭SELECT `id`,`name`,`rules`,`parent_id`‬
+* 		‭FROM `j17_assets`‬
+* 		‭WHERE `name` IN (:preparedArray1,:preparedArray2,:preparedArray3,:preparedArray4,:preparedArray5,:preparedArray6,:preparedArray7,:preparedArray8,:preparedArray9,:preparedArray10,:preparedArray11,:preparedArray12,:preparedArray13,:preparedArray14,:preparedArray15,:preparedArray16,:preparedArray17,:preparedArray18,:preparedArray19,:preparedArray20,:preparedArray21,:preparedArray22,:preparedArray23,:preparedArray24,:preparedArray25,:preparedArray26,:preparedArray27,:preparedArray28,:preparedArray29,:preparedArray30,:preparedArray31,:preparedArray32,:preparedArray33,:preparedArray34,:preparedArray35,:preparedArray36,:preparedArray37,:preparedArray38,:preparedArray39,:preparedArray40)‬1.93ms 33.99KB Parameters /libraries/src/Access/Access.php:357 Copy
+ 		‭SELECT `a`.`id`,`a`.`title`,`a`.`alias`,`a`.`introtext`,`a`.`fulltext`,`a`.`checked_out`,`a`.`checked_out_time`,`a`.`catid`,`a`.`created`,`a`.`created_by`,`a`.`created_by_alias`,`a`.`modified`,`a`.`modified_by`,CASE WHEN `a`.`publish_up` IS NULL THEN `a`.`created` ELSE `a`.`publish_up` END AS `publish_up`,`a`.`publish_down`,`a`.`images`,`a`.`urls`,`a`.`attribs`,`a`.`metadata`,`a`.`metakey`,`a`.`metadesc`,`a`.`access`,`a`.`hits`,`a`.`featured`,`a`.`language`,LENGTH(`a`.`fulltext`) AS `readmore`,`a`.`ordering`,`fp`.`featured_up`,`fp`.`featured_down`,CASE WHEN `c`.`published` = 2 AND `a`.`state` > 0 THEN 2 WHEN `c`.`published` != 1 THEN 0 ELSE `a`.`state` END AS `state`,`c`.`title` AS `category_title`,`c`.`path` AS `category_route`,`c`.`access` AS `category_access`,`c`.`alias` AS `category_alias`,`c`.`language` AS `category_language`,`c`.`published`,`c`.`published` AS `parents_published`,`c`.`lft`,CASE WHEN `a`.`created_by_alias` > ' ' THEN `a`.`created_by_alias` ELSE `ua`.`name` END AS `author`,`ua`.`email` AS `author_email`,`uam`.`name` AS `modified_by_name`,`parent`.`title` AS `parent_title`,`parent`.`id` AS `parent_id`,`parent`.`path` AS `parent_route`,`parent`.`alias` AS `parent_alias`,`parent`.`language` AS `parent_language`,COALESCE(NULLIF(ROUND(`v`.`rating_sum` / `v`.`rating_count`, 1), 0), 0) AS `rating`,COALESCE(NULLIF(`v`.`rating_count`, 0), 0) AS `rating_count`‬
+* 		‭FROM `j17_content` AS `a`‬
+* 		‭LEFT JOIN `j17_categories` AS `c` ON `c`.`id` = `a`.`catid`‬
+* 		‭LEFT JOIN `j17_users` AS `ua` ON `ua`.`id` = `a`.`created_by`‬
+* 		‭LEFT JOIN `j17_users` AS `uam` ON `uam`.`id` = `a`.`modified_by`‬
+* 		‭LEFT JOIN `j17_categories` AS `parent` ON `parent`.`id` = `c`.`parent_id`‬
+* 		‭LEFT JOIN `j17_content_frontpage` AS `fp` ON `fp`.`content_id` = `a`.`id`‬
+* 		‭LEFT JOIN `j17_content_rating` AS `v` ON `a`.`id` = `v`.`content_id`‬
+   ‭WHERE `a`.`featured` = 1 AND (`fp`.`featured_up` IS NULL OR `fp`.`featured_up` <= :frontpageUp) AND (`fp`.`featured_down` IS NULL OR `fp`.`featured_down` >= :frontpageDown) AND `a`.`access` IN (:preparedArray1) AND `c`.`access` IN (:preparedArray2) AND `c`.`published` = 1 AND `a`.`state` = :condition AND (`a`.`publish_up` IS NULL OR `a`.`publish_up` <= :publishUp) AND (`a`.`publish_down` IS NULL OR `a`.`publish_down` >= :publishDown)‬
+* 		‭ORDER BY  a.created  DESC , a.created DESC  LIMIT 14‬8.29ms 204.43KB Parameters /libraries/src/MVC/Model/BaseDatabaseModel.php:166 Copy
+* 		‭SELECT `m`.`tag_id`,`m`.`content_item_id`,`t`.*‬
+* 		‭FROM `j17_contentitem_tag_map` AS `m`‬
+* 		‭INNER JOIN `j17_tags` AS `t` ON `m`.`tag_id` = `t`.`id`‬
+* 		‭WHERE `m`.`type_alias` = :contentType AND `t`.`published` = 1 AND `m`.`content_item_id` IN (:preparedArray1,:preparedArray2,:preparedArray3,:preparedArray4,:preparedArray5,:preparedArray6,:preparedArray7,:preparedArray8,:preparedArray9,:preparedArray10,:preparedArray11,:preparedArray12,:preparedArray13,:preparedArray14) AND `t`.`access` IN (:preparedArray15)‬709μs 21.38KB Parameters /libraries/src/Helper/TagsHelper.php:448 Copy
+* 		‭SELECT COUNT(*)‬
+* 		‭FROM `j17_content` AS `a`‬
+* 		‭LEFT JOIN `j17_categories` AS `c` ON `c`.`id` = `a`.`catid`‬
+* 		‭LEFT JOIN `j17_users` AS `ua` ON `ua`.`id` = `a`.`created_by`‬
+* 		‭LEFT JOIN `j17_users` AS `uam` ON `uam`.`id` = `a`.`modified_by`‬
+* 		‭LEFT JOIN `j17_categories` AS `parent` ON `parent`.`id` = `c`.`parent_id`‬
+* 		‭LEFT JOIN `j17_content_frontpage` AS `fp` ON `fp`.`content_id` = `a`.`id`‬
+* 		‭LEFT JOIN `j17_content_rating` AS `v` ON `a`.`id` = `v`.`content_id`‬
+ 		‭WHERE `a`.`featured` = 1 AND (`fp`.`featured_up` IS NULL OR `fp`.`featured_up` <= :frontpageUp) AND (`fp`.`featured_down` IS NULL OR `fp`.`featured_down` >= :frontpageDown) AND `a`.`access` IN (:preparedArray1) AND `c`.`access` IN (:preparedArray2) AND `c`.`published` = 1 AND `a`.`state` = :condition AND (`a`.`publish_up` IS NULL OR `a`.`publish_up` <= :publishUp) AND (`a`.`publish_down` IS NULL OR `a`.`publish_down` >= :publishDown)‬11.45ms 21.3KB Parameters /libraries/src/MVC/Model/BaseDatabaseModel.php:199 Copy
+* 		‭SELECT `c`.`id`,`c`.`asset_id`,`c`.`access`,`c`.`alias`,`c`.`checked_out`,`c`.`checked_out_time`,`c`.`created_time`,`c`.`created_user_id`,`c`.`description`,`c`.`extension`,`c`.`hits`,`c`.`language`,`c`.`level`,`c`.`lft`,`c`.`metadata`,`c`.`metadesc`,`c`.`metakey`,`c`.`modified_time`,`c`.`note`,`c`.`params`,`c`.`parent_id`,`c`.`path`,`c`.`published`,`c`.`rgt`,`c`.`title`,`c`.`modified_user_id`,`c`.`version`, CASE WHEN CHAR_LENGTH(`c`.`alias`) != 0 THEN CONCAT_WS(':', `c`.`id`, `c`.`alias`) ELSE `c`.`id` END as `slug`‬
+* 		‭FROM `j17_categories` AS `s`‬
+* 		‭INNER JOIN `j17_categories` AS `c` ON (`s`.`lft` <= `c`.`lft` AND `c`.`lft` < `s`.`rgt`) OR (`c`.`lft` < `s`.`lft` AND `s`.`rgt` < `c`.`rgt`)‬
+* 		‭WHERE (`c`.`extension` = :extension OR `c`.`extension` = 'system') AND `c`.`access` IN (:preparedArray1) AND `c`.`published` = 1 AND `s`.`id` = :id‬
+* 		‭ORDER BY `c`.`lft`‬1.12ms 22.56KB Parameters /libraries/src/Categories/Categories.php:375 Copy
+* 		‭SELECT DISTINCT a.id, a.title, a.name, a.checked_out, a.checked_out_time, a.note, a.state, a.access, a.created_time, a.created_user_id, a.ordering, a.language, a.fieldparams, a.params, a.type, a.default_value, a.context, a.group_id, a.label, a.description, a.required, a.only_use_in_subform,l.title AS language_title, l.image AS language_image,uc.name AS editor,ag.title AS access_level,ua.name AS author_name,g.title AS group_title, g.access as group_access, g.state AS group_state, g.note as group_note‬
+* 		‭FROM j17_fields AS a‬
+* 		‭LEFT JOIN `j17_languages` AS l ON l.lang_code = a.language‬
+* 		‭LEFT JOIN j17_users AS uc ON uc.id=a.checked_out‬
+* 		‭LEFT JOIN j17_viewlevels AS ag ON ag.id = a.access‬
+* 		‭LEFT JOIN j17_users AS ua ON ua.id = a.created_user_id‬
+ 		‭LEFT JOIN j17_fields_groups AS g ON g.id = a.group_id‬
+* 		‭LEFT JOIN `j17_fields_categories` AS fc ON fc.field_id = a.id‬
+
+---
+ ‭WHERE ‬
+* 		‭(‬
+* 		‭(`a`.`context` = :context AND (`fc`.`category_id` IS NULL OR `fc`.`category_id` IN (:preparedArray1,:preparedArray2,:preparedArray3)) AND `a`.`access` IN (:preparedArray4)) AND ‬
+* 		‭(`a`.`group_id` = 0 OR `g`.`access` IN (:preparedArray5)) AND `a`.`state` = :state) AND ‬
+* 		‭(`a`.`group_id` = 0 OR `g`.`state` = :gstate) AND `a`.`only_use_in_subform` = :only_use_in_subform‬
+* 		‭ORDER BY a.ordering ASC‬1.78ms 21.48KB Parameters /libraries/src/MVC/Model/BaseDatabaseModel.php:166 Copy
+* 		‭SELECT `c`.`id`,`c`.`asset_id`,`c`.`access`,`c`.`alias`,`c`.`checked_out`,`c`.`checked_out_time`,`c`.`created_time`,`c`.`created_user_id`,`c`.`description`,`c`.`extension`,`c`.`hits`,`c`.`language`,`c`.`level`,`c`.`lft`,`c`.`metadata`,`c`.`metadesc`,`c`.`metakey`,`c`.`modified_time`,`c`.`note`,`c`.`params`,`c`.`parent_id`,`c`.`path`,`c`.`published`,`c`.`rgt`,`c`.`title`,`c`.`modified_user_id`,`c`.`version`, CASE WHEN CHAR_LENGTH(`c`.`alias`) != 0 THEN CONCAT_WS(':', `c`.`id`, `c`.`alias`) ELSE `c`.`id` END as `slug`‬
+* 		‭FROM `j17_categories` AS `s`‬
+* 		‭INNER JOIN `j17_categories` AS `c` ON (`s`.`lft` <= `c`.`lft` AND `c`.`lft` < `s`.`rgt`) OR (`c`.`lft` < `s`.`lft` AND `s`.`rgt` < `c`.`rgt`)‬
+* 		‭WHERE (`c`.`extension` = :extension OR `c`.`extension` = 'system') AND `c`.`access` IN (:preparedArray1) AND `c`.`published` = 1 AND `s`.`id` = :id‬
+* 		‭ORDER BY `c`.`lft`‬1.21ms 26.15KB Parameters /libraries/src/Categories/Categories.php:375 Copy
+* 		‭SELECT DISTINCT a.id, a.title, a.name, a.checked_out, a.checked_out_time, a.note, a.state, a.access, a.created_time, a.created_user_id, a.ordering, a.language, a.fieldparams, a.params, a.type, a.default_value, a.context, a.group_id, a.label, a.description, a.required, a.only_use_in_subform,l.title AS language_title, l.image AS language_image,uc.name AS editor,ag.title AS access_level,ua.name AS author_name,g.title AS group_title, g.access as group_access, g.state AS group_state, g.note as group_note‬
+* 		‭FROM j17_fields AS a‬
+* 		‭LEFT JOIN `j17_languages` AS l ON l.lang_code = a.language‬
+* 		‭LEFT JOIN j17_users AS uc ON uc.id=a.checked_out‬
+* 		‭LEFT JOIN j17_viewlevels AS ag ON ag.id = a.access‬
+* 		‭LEFT JOIN j17_users AS ua ON ua.id = a.created_user_id‬
+* 		‭LEFT JOIN j17_fields_groups AS g ON g.id = a.group_id‬
+* 		‭LEFT JOIN `j17_fields_categories` AS fc ON fc.field_id = a.id‬
+---
+
+‭WHERE ‬
+* 		‭(‬
+* 		‭(`a`.`context` = :context AND (`fc`.`category_id` IS NULL OR `fc`.`category_id` IN (:preparedArray1,:preparedArray2,:preparedArray3)) AND `a`.`access` IN (:preparedArray4)) AND ‬
+* 		‭(`a`.`group_id` = 0 OR `g`.`access` IN (:preparedArray5)) AND `a`.`state` = :state) AND ‬
+* 		‭(`a`.`group_id` = 0 OR `g`.`state` = :gstate) AND `a`.`only_use_in_subform` = :only_use_in_subform‬
+* 		‭ORDER BY a.ordering ASC‬1.73ms 21.48KB Parameters /libraries/src/MVC/Model/BaseDatabaseModel.php:166 Copy
+* 		‭SELECT `c`.`id`,`c`.`asset_id`,`c`.`access`,`c`.`alias`,`c`.`checked_out`,`c`.`checked_out_time`,`c`.`created_time`,`c`.`created_user_id`,`c`.`description`,`c`.`extension`,`c`.`hits`,`c`.`language`,`c`.`level`,`c`.`lft`,`c`.`metadata`,`c`.`metadesc`,`c`.`metakey`,`c`.`modified_time`,`c`.`note`,`c`.`params`,`c`.`parent_id`,`c`.`path`,`c`.`published`,`c`.`rgt`,`c`.`title`,`c`.`modified_user_id`,`c`.`version`, CASE WHEN CHAR_LENGTH(`c`.`alias`) != 0 THEN CONCAT_WS(':', `c`.`id`, `c`.`alias`) ELSE `c`.`id` END as `slug`‬
+* 		‭FROM `j17_categories` AS `s`‬
+* 		‭INNER JOIN `j17_categories` AS `c` ON (`s`.`lft` <= `c`.`lft` AND `c`.`lft` < `s`.`rgt`) OR (`c`.`lft` < `s`.`lft` AND `s`.`rgt` < `c`.`rgt`)‬
+* 		‭WHERE (`c`.`extension` = :extension OR `c`.`extension` = 'system') AND `c`.`access` IN (:preparedArray1) AND `c`.`published` = 1 AND `s`.`id` = :id‬
+* 		‭ORDER BY `c`.`lft`‬1.45ms 36.35KB Parameters /libraries/src/Categories/Categories.php:375 Copy
+* 		‭SELECT DISTINCT a.id, a.title, a.name, a.checked_out, a.checked_out_time, a.note, a.state, a.access, a.created_time, a.created_user_id, a.ordering, a.language, a.fieldparams, a.params, a.type, a.default_value, a.context, a.group_id, a.label, a.description, a.required, a.only_use_in_subform,l.title AS language_title, l.image AS language_image,uc.name AS editor,ag.title AS access_level,ua.name AS author_name,g.title AS group_title, g.access as group_access, g.state AS group_state, g.note as group_note‬
+* 		‭FROM j17_fields AS a‬
+* 		‭LEFT JOIN `j17_languages` AS l ON l.lang_code = a.language‬
+* 		‭LEFT JOIN j17_users AS uc ON uc.id=a.checked_out‬
+* 		‭LEFT JOIN j17_viewlevels AS ag ON ag.id = a.access‬
+* 		‭LEFT JOIN j17_users AS ua ON ua.id = a.created_user_id‬
+* 		‭LEFT JOIN j17_fields_groups AS g ON g.id = a.group_id‬
+* 		‭LEFT JOIN `j17_fields_categories` AS fc ON fc.field_id = a.id‬
+* 		‭WHERE ‬
+* 		‭(‬
+* 		‭(`a`.`context` = :context AND (`fc`.`category_id` IS NULL OR `fc`.`category_id` IN (:preparedArray1,:preparedArray2)) AND `a`.`access` IN (:preparedArray3)) AND ‬
+* 		‭(`a`.`group_id` = 0 OR `g`.`access` IN (:preparedArray4)) AND `a`.`state` = :state) AND ‬
+* 		‭(`a`.`group_id` = 0 OR `g`.`state` = :gstate) AND `a`.`only_use_in_subform` = :only_use_in_subform‬
+* 		‭ORDER BY a.ordering ASC‬2.17ms 21.12KB Parameters /libraries/src/MVC/Model/BaseDatabaseModel.php:166 Copy
+* 		‭SELECT `c`.`id`,`c`.`asset_id`,`c`.`access`,`c`.`alias`,`c`.`checked_out`,`c`.`checked_out_time`,`c`.`created_time`,`c`.`created_user_id`,`c`.`description`,`c`.`extension`,`c`.`hits`,`c`.`language`,`c`.`level`,`c`.`lft`,`c`.`metadata`,`c`.`metadesc`,`c`.`metakey`,`c`.`modified_time`,`c`.`note`,`c`.`params`,`c`.`parent_id`,`c`.`path`,`c`.`published`,`c`.`rgt`,`c`.`title`,`c`.`modified_user_id`,`c`.`version`, CASE WHEN CHAR_LENGTH(`c`.`alias`) != 0 THEN CONCAT_WS(':', `c`.`id`, `c`.`alias`) ELSE `c`.`id` END as `slug`‬
+* 		‭FROM `j17_categories` AS `s`‬
+* 		‭INNER JOIN `j17_categories` AS `c` ON (`s`.`lft` <= `c`.`lft` AND `c`.`lft` < `s`.`rgt`) OR (`c`.`lft` < `s`.`lft` AND `s`.`rgt` < `c`.`rgt`)‬
+* 		‭WHERE (`c`.`extension` = :extension OR `c`.`extension` = 'system') AND `c`.`access` IN (:preparedArray1) AND `c`.`published` = 1 AND `s`.`id` = :id‬
+* 		‭ORDER BY `c`.`lft`‬1.17ms 23.65KB Parameters /libraries/src/Categories/Categories.php:375 Copy
+* 		‭SELECT DISTINCT a.id, a.title, a.name, a.checked_out, a.checked_out_time, a.note, a.state, a.access, a.created_time, a.created_user_id, a.ordering, a.language, a.fieldparams, a.params, a.type, a.default_value, a.context, a.group_id, a.label, a.description, a.required, a.only_use_in_subform,l.title AS language_title, l.image AS language_image,uc.name AS editor,ag.title AS access_level,ua.name AS author_name,g.title AS group_title, g.access as group_access, g.state AS group_state, g.note as group_note‬
+* 		‭FROM j17_fields AS a‬
+* 		‭LEFT JOIN `j17_languages` AS l ON l.lang_code = a.language‬
+* 		‭LEFT JOIN j17_users AS uc ON uc.id=a.checked_out‬
+* 		‭LEFT JOIN j17_viewlevels AS ag ON ag.id = a.access‬
+* 		‭LEFT JOIN j17_users AS ua ON ua.id = a.created_user_id‬
+* 		‭LEFT JOIN j17_fields_groups AS g ON g.id = a.group_id‬
+* 		‭LEFT JOIN `j17_fields_categories` AS fc ON fc.field_id = a.id‬
+  ‭WHERE ‬
+* 		‭(‬
+* 		‭(`a`.`context` = :context AND (`fc`.`category_id` IS NULL OR `fc`.`category_id` IN (:preparedArray1,:preparedArray2,:preparedArray3,:preparedArray4)) AND `a`.`access` IN (:preparedArray5)) AND ‬
+* 		‭(`a`.`group_id` = 0 OR `g`.`access` IN (:preparedArray6)) AND `a`.`state` = :state) AND ‬
+* 		‭(`a`.`group_id` = 0 OR `g`.`state` = :gstate) AND `a`.`only_use_in_subform` = :only_use_in_subform‬
+* 		‭ORDER BY a.ordering ASC‬1.93ms 21.6KB Parameters /libraries/src/MVC/Model/BaseDatabaseModel.php:166 Copy
+* 		‭SELECT `c`.`id`,`c`.`asset_id`,`c`.`access`,`c`.`alias`,`c`.`checked_out`,`c`.`checked_out_time`,`c`.`created_time`,`c`.`created_user_id`,`c`.`description`,`c`.`extension`,`c`.`hits`,`c`.`language`,`c`.`level`,`c`.`lft`,`c`.`metadata`,`c`.`metadesc`,`c`.`metakey`,`c`.`modified_time`,`c`.`note`,`c`.`params`,`c`.`parent_id`,`c`.`path`,`c`.`published`,`c`.`rgt`,`c`.`title`,`c`.`modified_user_id`,`c`.`version`, CASE WHEN CHAR_LENGTH(`c`.`alias`) != 0 THEN CONCAT_WS(':', `c`.`id`, `c`.`alias`) ELSE `c`.`id` END as `slug`‬
+* 		‭FROM `j17_categories` AS `s`‬
+* 		‭INNER JOIN `j17_categories` AS `c` ON (`s`.`lft` <= `c`.`lft` AND `c`.`lft` < `s`.`rgt`) OR (`c`.`lft` < `s`.`lft` AND `s`.`rgt` < `c`.`rgt`)‬
+* 		‭WHERE (`c`.`extension` = :extension OR `c`.`extension` = 'system') AND `c`.`access` IN (:preparedArray1) AND `c`.`published` = 1 AND `s`.`id` = :id‬
+* 		‭ORDER BY `c`.`lft`‬1.18ms 23.64KB Parameters /libraries/src/Categories/Categories.php:375 Copy
+* 		‭SELECT DISTINCT a.id, a.title, a.name, a.checked_out, a.checked_out_time, a.note, a.state, a.access, a.created_time, a.created_user_id, a.ordering, a.language, a.fieldparams, a.params, a.type, a.default_value, a.context, a.group_id, a.label, a.description, a.required, a.only_use_in_subform,l.title AS language_title, l.image AS language_image,uc.name AS editor,ag.title AS access_level,ua.name AS author_name,g.title AS group_title, g.access as group_access, g.state AS group_state, g.note as group_note‬
+* 		‭FROM j17_fields AS a‬
+* 		‭LEFT JOIN `j17_languages` AS l ON l.lang_code = a.language‬
+* 		‭LEFT JOIN j17_users AS uc ON uc.id=a.checked_out‬
+* 		‭LEFT JOIN j17_viewlevels AS ag ON ag.id = a.access‬
+* 		‭LEFT JOIN j17_users AS ua ON ua.id = a.created_user_id‬
+* 		‭LEFT JOIN j17_fields_groups AS g ON g.id = a.group_id‬
+* 		‭LEFT JOIN `j17_fields_categories` AS fc ON fc.field_id = a.id‬
+   ‭WHERE ‬
+* 		‭(‬
+* 		‭(`a`.`context` = :context AND (`fc`.`category_id` IS NULL OR `fc`.`category_id` IN (:preparedArray1,:preparedArray2,:preparedArray3,:preparedArray4)) AND `a`.`access` IN (:preparedArray5)) AND ‬
+* 		‭(`a`.`group_id` = 0 OR `g`.`access` IN (:preparedArray6)) AND `a`.`state` = :state) AND ‬
+* 		‭(`a`.`group_id` = 0 OR `g`.`state` = :gstate) AND `a`.`only_use_in_subform` = :only_use_in_subform‬
+* 		‭ORDER BY a.ordering ASC‬1.97ms 21.6KB Parameters /libraries/src/MVC/Model/BaseDatabaseModel.php:166 Copy
+* 		‭SELECT `c`.`id`,`c`.`asset_id`,`c`.`access`,`c`.`alias`,`c`.`checked_out`,`c`.`checked_out_time`,`c`.`created_time`,`c`.`created_user_id`,`c`.`description`,`c`.`extension`,`c`.`hits`,`c`.`language`,`c`.`level`,`c`.`lft`,`c`.`metadata`,`c`.`metadesc`,`c`.`metakey`,`c`.`modified_time`,`c`.`note`,`c`.`params`,`c`.`parent_id`,`c`.`path`,`c`.`published`,`c`.`rgt`,`c`.`title`,`c`.`modified_user_id`,`c`.`version`, CASE WHEN CHAR_LENGTH(`c`.`alias`) != 0 THEN CONCAT_WS(':', `c`.`id`, `c`.`alias`) ELSE `c`.`id` END as `slug`‬
+* 		‭FROM `j17_categories` AS `s`‬
+* 		‭INNER JOIN `j17_categories` AS `c` ON (`s`.`lft` <= `c`.`lft` AND `c`.`lft` < `s`.`rgt`) OR (`c`.`lft` < `s`.`lft` AND `s`.`rgt` < `c`.`rgt`)‬
+* 		‭WHERE (`c`.`extension` = :extension OR `c`.`extension` = 'system') AND `c`.`access` IN (:preparedArray1) AND `c`.`published` = 1 AND `s`.`id` = :id‬
+* 		‭ORDER BY `c`.`lft`‬1.38ms 38.04KB Parameters /libraries/src/Categories/Categories.php:375 Copy
+* 		‭SELECT DISTINCT a.id, a.title, a.name, a.checked_out, a.checked_out_time, a.note, a.state, a.access, a.created_time, a.created_user_id, a.ordering, a.language, a.fieldparams, a.params, a.type, a.default_value, a.context, a.group_id, a.label, a.description, a.required, a.only_use_in_subform,l.title AS language_title, l.image AS language_image,uc.name AS editor,ag.title AS access_level,ua.name AS author_name,g.title AS group_title, g.access as group_access, g.state AS group_state, g.note as group_note‬
+* 		‭FROM j17_fields AS a‬
+* 		‭LEFT JOIN `j17_languages` AS l ON l.lang_code = a.language‬
+* 		‭LEFT JOIN j17_users AS uc ON uc.id=a.checked_out‬
+* 		‭LEFT JOIN j17_viewlevels AS ag ON ag.id = a.access‬
+* 		‭LEFT JOIN j17_users AS ua ON ua.id = a.created_user_id‬
+* 		‭LEFT JOIN j17_fields_groups AS g ON g.id = a.group_id‬
+* 		‭LEFT JOIN `j17_fields_categories` AS fc ON fc.field_id = a.id‬
+* 		‭WHERE ‬
+* 		‭(‬
+* 		‭(`a`.`context` = :context AND (`fc`.`category_id` IS NULL OR `fc`.`category_id` IN (:preparedArray1,:preparedArray2)) AND `a`.`access` IN (:preparedArray3)) AND ‬
+* 		‭(`a`.`group_id` = 0 OR `g`.`access` IN (:preparedArray4)) AND `a`.`state` = :state) AND ‬
+* 		‭(`a`.`group_id` = 0 OR `g`.`state` = :gstate) AND `a`.`only_use_in_subform` = :only_use_in_subform‬
+* 		‭ORDER BY a.ordering ASC‬1.37ms 21.12KB Parameters /libraries/src/MVC/Model/BaseDatabaseModel.php:166 Copy
+* 		‭SELECT `c`.`id`,`c`.`asset_id`,`c`.`access`,`c`.`alias`,`c`.`checked_out`,`c`.`checked_out_time`,`c`.`created_time`,`c`.`created_user_id`,`c`.`description`,`c`.`extension`,`c`.`hits`,`c`.`language`,`c`.`level`,`c`.`lft`,`c`.`metadata`,`c`.`metadesc`,`c`.`metakey`,`c`.`modified_time`,`c`.`note`,`c`.`params`,`c`.`parent_id`,`c`.`path`,`c`.`published`,`c`.`rgt`,`c`.`title`,`c`.`modified_user_id`,`c`.`version`, CASE WHEN CHAR_LENGTH(`c`.`alias`) != 0 THEN CONCAT_WS(':', `c`.`id`, `c`.`alias`) ELSE `c`.`id` END as `slug`‬
+* 		‭FROM `j17_categories` AS `s`‬
+* 		‭INNER JOIN `j17_categories` AS `c` ON (`s`.`lft` <= `c`.`lft` AND `c`.`lft` < `s`.`rgt`) OR (`c`.`lft` < `s`.`lft` AND `s`.`rgt` < `c`.`rgt`)‬
+* 		‭WHERE (`c`.`extension` = :extension OR `c`.`extension` = 'system') AND `c`.`access` IN (:preparedArray1) AND `c`.`published` = 1 AND `s`.`id` = :id‬
+* 		‭ORDER BY `c`.`lft`‬708μs 22.77KB Parameters /libraries/src/Categories/Categories.php:375 Copy
+* 		‭SELECT DISTINCT a.id, a.title, a.name, a.checked_out, a.checked_out_time, a.note, a.state, a.access, a.created_time, a.created_user_id, a.ordering, a.language, a.fieldparams, a.params, a.type, a.default_value, a.context, a.group_id, a.label, a.description, a.required, a.only_use_in_subform,l.title AS language_title, l.image AS language_image,uc.name AS editor,ag.title AS access_level,ua.name AS author_name,g.title AS group_title, g.access as group_access, g.state AS group_state, g.note as group_note‬
+* 		‭FROM j17_fields AS a‬
+* 		‭LEFT JOIN `j17_languages` AS l ON l.lang_code = a.language‬
+* 		‭LEFT JOIN j17_users AS uc ON uc.id=a.checked_out‬
+* 		‭LEFT JOIN j17_viewlevels AS ag ON ag.id = a.access‬
+* 		‭LEFT JOIN j17_users AS ua ON ua.id = a.created_user_id‬
+* 		‭LEFT JOIN j17_fields_groups AS g ON g.id = a.group_id‬
+* 		‭LEFT JOIN `j17_fields_categories` AS fc ON fc.field_id = a.id‬
+* 		‭WHERE ‬
+* 		‭(‬
+* 		‭(`a`.`context` = :context AND (`fc`.`category_id` IS NULL OR `fc`.`category_id` IN (:preparedArray1,:preparedArray2,:preparedArray3)) AND `a`.`access` IN (:preparedArray4)) AND ‬
+* 		‭(`a`.`group_id` = 0 OR `g`.`access` IN (:preparedArray5)) AND `a`.`state` = :state) AND ‬
+* 		‭(`a`.`group_id` = 0 OR `g`.`state` = :gstate) AND `a`.`only_use_in_subform` = :only_use_in_subform‬
+* 		‭ORDER BY a.ordering ASC‬1.28ms 21.48KB Parameters /libraries/src/MVC/Model/BaseDatabaseModel.php:166 Copy
+* 		‭SELECT `c`.`id`,`c`.`asset_id`,`c`.`access`,`c`.`alias`,`c`.`checked_out`,`c`.`checked_out_time`,`c`.`created_time`,`c`.`created_user_id`,`c`.`description`,`c`.`extension`,`c`.`hits`,`c`.`language`,`c`.`level`,`c`.`lft`,`c`.`metadata`,`c`.`metadesc`,`c`.`metakey`,`c`.`modified_time`,`c`.`note`,`c`.`params`,`c`.`parent_id`,`c`.`path`,`c`.`published`,`c`.`rgt`,`c`.`title`,`c`.`modified_user_id`,`c`.`version`, CASE WHEN CHAR_LENGTH(`c`.`alias`) != 0 THEN CONCAT_WS(':', `c`.`id`, `c`.`alias`) ELSE `c`.`id` END as `slug`‬
+* 		‭FROM `j17_categories` AS `s`‬
+* 		‭INNER JOIN `j17_categories` AS `c` ON (`s`.`lft` <= `c`.`lft` AND `c`.`lft` < `s`.`rgt`) OR (`c`.`lft` < `s`.`lft` AND `s`.`rgt` < `c`.`rgt`)‬
+* 		‭WHERE (`c`.`extension` = :extension OR `c`.`extension` = 'system') AND `c`.`access` IN (:preparedArray1) AND `c`.`published` = 1 AND `s`.`id` = :id‬
+* 		‭ORDER BY `c`.`lft`‬430μs 22.56KB Parameters /libraries/src/Categories/Categories.php:375 Copy
+* 		‭SELECT `c`.`id`,`c`.`asset_id`,`c`.`access`,`c`.`alias`,`c`.`checked_out`,`c`.`checked_out_time`,`c`.`created_time`,`c`.`created_user_id`,`c`.`description`,`c`.`extension`,`c`.`hits`,`c`.`language`,`c`.`level`,`c`.`lft`,`c`.`metadata`,`c`.`metadesc`,`c`.`metakey`,`c`.`modified_time`,`c`.`note`,`c`.`params`,`c`.`parent_id`,`c`.`path`,`c`.`published`,`c`.`rgt`,`c`.`title`,`c`.`modified_user_id`,`c`.`version`, CASE WHEN CHAR_LENGTH(`c`.`alias`) != 0 THEN CONCAT_WS(':', `c`.`id`, `c`.`alias`) ELSE `c`.`id` END as `slug`‬
+* 		‭FROM `j17_categories` AS `s`‬
+* 		‭INNER JOIN `j17_categories` AS `c` ON (`s`.`lft` <= `c`.`lft` AND `c`.`lft` < `s`.`rgt`) OR (`c`.`lft` < `s`.`lft` AND `s`.`rgt` < `c`.`rgt`)‬
+* 		‭WHERE (`c`.`extension` = :extension OR `c`.`extension` = 'system') AND `c`.`access` IN (:preparedArray1) AND `c`.`published` = 1 AND `s`.`id` = :id‬
+* 		‭ORDER BY `c`.`lft`‬241μs 23.65KB Parameters /libraries/src/Categories/Categories.php:375 Copy
+* 		‭SELECT `c`.`id`,`c`.`asset_id`,`c`.`access`,`c`.`alias`,`c`.`checked_out`,`c`.`checked_out_time`,`c`.`created_time`,`c`.`created_user_id`,`c`.`description`,`c`.`extension`,`c`.`hits`,`c`.`language`,`c`.`level`,`c`.`lft`,`c`.`metadata`,`c`.`metadesc`,`c`.`metakey`,`c`.`modified_time`,`c`.`note`,`c`.`params`,`c`.`parent_id`,`c`.`path`,`c`.`published`,`c`.`rgt`,`c`.`title`,`c`.`modified_user_id`,`c`.`version`, CASE WHEN CHAR_LENGTH(`c`.`alias`) != 0 THEN CONCAT_WS(':', `c`.`id`, `c`.`alias`) ELSE `c`.`id` END as `slug`‬
+* 		‭FROM `j17_categories` AS `s`‬
+* 		‭INNER JOIN `j17_categories` AS `c` ON (`s`.`lft` <= `c`.`lft` AND `c`.`lft` < `s`.`rgt`) OR (`c`.`lft` < `s`.`lft` AND `s`.`rgt` < `c`.`rgt`)‬
+* 		‭WHERE (`c`.`extension` = :extension OR `c`.`extension` = 'system') AND `c`.`access` IN (:preparedArray1) AND `c`.`published` = 1 AND `s`.`id` = :id‬
+* 		‭ORDER BY `c`.`lft`‬267μs 23.64KB Parameters /libraries/src/Categories/Categories.php:375 Copy
+* 		‭SELECT `c`.`id`,`c`.`asset_id`,`c`.`access`,`c`.`alias`,`c`.`checked_out`,`c`.`checked_out_time`,`c`.`created_time`,`c`.`created_user_id`,`c`.`description`,`c`.`extension`,`c`.`hits`,`c`.`language`,`c`.`level`,`c`.`lft`,`c`.`metadata`,`c`.`metadesc`,`c`.`metakey`,`c`.`modified_time`,`c`.`note`,`c`.`params`,`c`.`parent_id`,`c`.`path`,`c`.`published`,`c`.`rgt`,`c`.`title`,`c`.`modified_user_id`,`c`.`version`, CASE WHEN CHAR_LENGTH(`c`.`alias`) != 0 THEN CONCAT_WS(':', `c`.`id`, `c`.`alias`) ELSE `c`.`id` END as `slug`‬
+* 		‭FROM `j17_categories` AS `s`‬
+* 		‭INNER JOIN `j17_categories` AS `c` ON (`s`.`lft` <= `c`.`lft` AND `c`.`lft` < `s`.`rgt`) OR (`c`.`lft` < `s`.`lft` AND `s`.`rgt` < `c`.`rgt`)‬
+* 		‭WHERE (`c`.`extension` = :extension OR `c`.`extension` = 'system') AND `c`.`access` IN (:preparedArray1) AND `c`.`published` = 1 AND `s`.`id` = :id‬
+* 		‭ORDER BY `c`.`lft`‬1.08ms 38.04KB Parameters /libraries/src/Categories/Categories.php:375 Copy
+* 		‭SELECT `c`.`id`,`c`.`asset_id`,`c`.`access`,`c`.`alias`,`c`.`checked_out`,`c`.`checked_out_time`,`c`.`created_time`,`c`.`created_user_id`,`c`.`description`,`c`.`extension`,`c`.`hits`,`c`.`language`,`c`.`level`,`c`.`lft`,`c`.`metadata`,`c`.`metadesc`,`c`.`metakey`,`c`.`modified_time`,`c`.`note`,`c`.`params`,`c`.`parent_id`,`c`.`path`,`c`.`published`,`c`.`rgt`,`c`.`title`,`c`.`modified_user_id`,`c`.`version`, CASE WHEN CHAR_LENGTH(`c`.`alias`) != 0 THEN CONCAT_WS(':', `c`.`id`, `c`.`alias`) ELSE `c`.`id` END as `slug`‬
+* 		‭FROM `j17_categories` AS `s`‬
+* 		‭INNER JOIN `j17_categories` AS `c` ON (`s`.`lft` <= `c`.`lft` AND `c`.`lft` < `s`.`rgt`) OR (`c`.`lft` < `s`.`lft` AND `s`.`rgt` < `c`.`rgt`)‬
+* 		‭WHERE (`c`.`extension` = :extension OR `c`.`extension` = 'system') AND `c`.`access` IN (:preparedArray1) AND `c`.`published` = 1 AND `s`.`id` = :id‬
+* 		‭ORDER BY `c`.`lft`‬362μs 33.77KB Parameters /libraries/src/Categories/Categories.php:375 Copy
+* 		‭SELECT `m`.`id`,`m`.`title`,`m`.`module`,`m`.`position`,`m`.`content`,`m`.`showtitle`,`m`.`params`,`mm`.`menuid`‬
+* 		‭FROM `j17_modules` AS `m`‬
+* 		‭LEFT JOIN `j17_modules_menu` AS `mm` ON `mm`.`moduleid` = `m`.`id`‬
+* 		‭LEFT JOIN `j17_extensions` AS `e` ON `e`.`element` = `m`.`module` AND `e`.`client_id` = `m`.`client_id`‬
+* 		‭WHERE ‬
+* 		‭(‬
+* 		‭(‬
+* 		‭(`m`.`published` = 1 AND `e`.`enabled` = 1 AND `m`.`client_id` = :clientId AND `m`.`access` IN (:preparedArray1)) AND ‬
+* 		‭(`m`.`publish_up` IS NULL OR `m`.`publish_up` <= :publishUp)) AND ‬
+* 		‭(`m`.`publish_down` IS NULL OR `m`.`publish_down` >= :publishDown)) AND ‬
+* 		‭(`mm`.`menuid` = :itemId OR `mm`.`menuid` <= 0)‬
+* 		‭ORDER BY `m`.`position`,`m`.`ordering`‬4.83ms 30.61KB Parameters /libraries/src/Cache/Controller/CallbackController.php:51 Copy
+* 		‭SELECT DISTINCT a.id, a.title, a.name, a.checked_out, a.checked_out_time, a.note, a.state, a.access, a.created_time, a.created_user_id, a.ordering, a.language, a.fieldparams, a.params, a.type, a.default_value, a.context, a.group_id, a.label, a.description, a.required, a.only_use_in_subform,l.title AS language_title, l.image AS language_image,uc.name AS editor,ag.title AS access_level,ua.name AS author_name,g.title AS group_title, g.access as group_access, g.state AS group_state, g.note as group_note‬
+* 		‭FROM j17_fields AS a‬
+* 		‭LEFT JOIN `j17_languages` AS l ON l.lang_code = a.language‬
+* 		‭LEFT JOIN j17_users AS uc ON uc.id=a.checked_out‬
+* 		‭LEFT JOIN j17_viewlevels AS ag ON ag.id = a.access‬
+* 		‭LEFT JOIN j17_users AS ua ON ua.id = a.created_user_id‬
+* 		‭LEFT JOIN j17_fields_groups AS g ON g.id = a.group_id‬
+* 		‭WHERE ‬
+* 		‭(‬
+* 		‭(`a`.`context` = :context AND `a`.`access` IN (:preparedArray1)) AND ‬
+* 		‭(`a`.`group_id` = 0 OR `g`.`access` IN (:preparedArray2)) AND `a`.`state` = :state) AND ‬
+* 		‭(`a`.`group_id` = 0 OR `g`.`state` = :gstate) AND `a`.`only_use_in_subform` = :only_use_in_subform‬
+* 		‭ORDER BY a.ordering ASC‬1.79ms 20.88KB Parameters /libraries/src/MVC/Model/BaseDatabaseModel.php:166 Copy
+* 		‭SELECT SUM(CASE WHEN `a`.`next_execution` <= :now THEN 1 ELSE 0 END) AS due_count,SUM(CASE WHEN `a`.`locked` IS NULL THEN 0 ELSE 1 END) AS locked_count‬
+* 		‭FROM `j17_scheduler_tasks` AS `a`‬
+* 		‭WHERE `a`.`state` = 1‬1.09ms 17.23KB Parameters /administrator/components/com_scheduler/src/Model/TasksModel.php:517 Copy
+* 		‭SELECT `session_id`‬
+* 		‭FROM `j17_session`‬
+* 		‭WHERE `session_id` = ?‬563μs 17.01KB Parameters /libraries/vendor/joomla/session/src/Handler/DatabaseHandler.php:291 Copy
+* 		‭UPDATE `j17_session`‬
+* 		‭SET `data` = ?‬
+* 		‭	, `time` = ?‬
+* 		‭WHERE `session_id` = ?‬950μs
