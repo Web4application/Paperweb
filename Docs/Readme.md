@@ -1,4 +1,6 @@
-@meta
+---
+tittle: 
+## @meta, ## @page
   project: Paperweb
   repo: https://github.com/Web4application/Paperweb
   version: 1.0
@@ -7,10 +9,12 @@
   type: khml-paperweb
   converted: true
   date: 2025-12-02
-@end
+---
+## @end
 
 
-@page repo-summary
+ @page repo-summary
+ 
 # Paperweb Repository (KHML Conversion)
 
 This document is the full KHML condensation of **Web4application/Paperweb**.
