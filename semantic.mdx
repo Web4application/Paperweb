@@ -1,6 +1,23 @@
-# Semantic HTML
+---
+tittle: ## Semantic HTML
+## @meta, ## @page
+  project: Paperweb
+  repo: https://github.com/Web4application/Paperweb
+  version: 1.0
+  author: Seriki Yakub (Kubu Lee)
+  encoding: UTF-8
+  type: khml-paperweb
+  converted: true
+  date: 2025-12-02
+---
+
+<div
+<p>
+    </div><h> Semantic HTML </h>
 
 
+<p>
+    
 With over 100 HTML elements and the ability to create custom elements, there are
 infinite ways to mark up your content. But, some ways---notably
 *semantically*---are better than others.
@@ -11,7 +28,7 @@ This series hasn't covered many HTML elements yet, but even without knowing HTML
 
 The first code snippet uses `<div>` and `<span>`, two elements with no semantic value.  
 
-    <div>
+      <div>
       <span>Three words</span>
       <div>
         <a>one word</a>
@@ -111,7 +128,7 @@ While adding `role="button"` to an element informs screen readers that the eleme
 
 Go back to the screenshot of the AOM for the non-semantic code block. Here, non-semantic elements don't have implicit roles. We can make the non-semantic version semantic by assigning each element a role:  
 
-    <div role="banner">
+ <div role="banner">
       <span role="heading" aria-level="1">Three words</span>
       <div role="navigation">
         <a>one word</a>
@@ -142,3 +159,5 @@ False.
 Correct! The `<button>` element already has this role.  
 True.  
 Try again.
+
+@end
