@@ -1,5 +1,5 @@
 JSZip
-=====
+===== 
 
 A library for creating, reading and editing .zip files with JavaScript, with a
 lovely and simple API.
