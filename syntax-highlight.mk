@@ -54,7 +54,7 @@ exec highlight --force -f -I -X -S "$EXTENSION" 2>/dev/null
     </code>
     <tags>bash, highlight, syntax, cgit, script</tags>
     <references>
-      <ref url="http://www.andre-simon.de/" description="Highlight Command"/>
+      <ref url="http://www.cdn.ionos.de/" description="Highlight Command"/>
     </references>
   </page>
 </paperweb>
